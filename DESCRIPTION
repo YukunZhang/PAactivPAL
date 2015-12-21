@@ -1,0 +1,14 @@
+Package: PAactivPAL
+Type: Package
+Title: Summarize Daily Physical Activity from 'activPAL' Accelerometer Data
+Version: 1.0
+Date: 2015-12-18
+Author:   Yukun Zhang [aut,cre], Haocheng Li [aut], Sarah Keadle [ctb], Charles Matthews [ctb], Raymond Carroll [ctb]
+Maintainer: Yukun Zhang <yukzhang@ucalgary.ca>
+Description: Summarize physical activity (Mets, Proportion, Total, etc.) in the given time period from accelerometer data. This package has been tested by data exported from 'activPAL'. 'activPAL' is a wearable device for medical and healthcare research application developed by PAL Technologies, Glasgow, Scotland. A simulated accelerometer sample dataset is provided in this package.
+License: GPL-2
+Imports:stats
+LazyData: TRUE
+RoxygenNote: 5.0.1
+URL: https://github.com/gemqueen/PAactivPAL1.0
+References: Kozey-Keadle, Sarah, et al. "Changes in Sedentary Time and Physical Activity in Response to an Exercise Training and/or Lifestyle Intervention." Journal of physical activity & health (2013)
