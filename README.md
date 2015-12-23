@@ -5,3 +5,8 @@ PAactivPAL is a tool to summarize physical activity (Mets, Proportion, Total, et
 
 ###Reference
 Kozey-Keadle, Sarah, et al. "Changes in Sedentary Time and Physical Activity in Response to an Exercise Training and/or Lifestyle Intervention." Journal of physical activity & health (2013)
+###Installation
+This package has been published on CRAN, you can find it here:
+https://cran.r-project.org/web/packages/PAactivPAL/index.html
+
+To install, you can download the .tat.gz file.
