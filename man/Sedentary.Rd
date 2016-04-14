@@ -7,22 +7,22 @@
 Sedentary(final_dat, bed_time, takeoff_time)
 }
 \arguments{
-\item{final_dat}{Raw event file, will be cleaned in this function}
+\item{final_dat}{Raw event file, will be cleaned in this function. Event file is required for this function.}
 
-\item{bed_time}{Sleep and wake up time log, reported by participants}
+\item{bed_time}{Sleep and wake up time log, reported by participants. Log is not required for this function.}
 
-\item{takeoff_time}{Take on and off time log, reported by participants}
+\item{takeoff_time}{Take on and off time log, reported by participants. Log is not required for this function.}
 }
 \value{
-\code{year} The calendar year of recored event
+\code{Year} The calendar year of recorded event
 
-\code{month} The calendar month of recorded event
+\code{Month} The calendar month of recorded event
 
-\code{day}   The calendar day of recorded event
+\code{Day}   The calendar day of recorded event
 
-\code{dayofweek} The day of that week
+\code{Dayofweek} The day of that week
 
-\code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+\code{Weekday_or_weekend}  The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 
 \code{break_per_day} Number of interrupting sedentary behavior during the given period of time
 
@@ -79,6 +79,7 @@ alpha_sed is defined by \code{1+1/M}, where \code{M} is the average of \code{log
 Proportions of sedentary time between 6:00-12:00/12:00-18:00/18:00-22:00 is the ratio of the sedentary durations to the total activity durations between 6:00-12:00/12:00-18:00/18:00-22:00.
 }
 \examples{
-r2=Sedentary(sample_event,sample_takeon_log,sample_bed_time); summary(r2)
+\donttest{r2=Sedentary(sample_event,sample_bed_time,sample_takeon_log)}
+\donttest{summary(r2)}
 }
 

@@ -135,14 +135,14 @@ final_dat_oneday_clean=final_dat_oneday
 #' Standard Physical Activity Summary
 #'
 #' Summarize standard activity measures
-#' @param final_dat Raw event file, will be cleaned in this function
-#' @param takeoff_time Take on and off time log, reported by participants
-#' @param bed_time Sleep and wake up time log, reported by participants
-#' @return \code{year} The calendar year of recored event
-#' @return \code{month} The calendar month of recorded event
-#' @return \code{day}   The calendar day of recorded event
-#' @return \code{dayofweek} The day of that week
-#' @return \code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+#' @param final_dat Raw event file, will be cleaned in this function. Event file is required for this function.
+#' @param takeoff_time Take on and off time log, reported by participants. Log is not required for this function.
+#' @param bed_time Sleep and wake up time log, reported by participants. Log is not required for this function.
+#' @return \code{Year} The calendar year of recorded event
+#' @return \code{Month} The calendar month of recorded event
+#' @return \code{Day}   The calendar day of recorded event
+#' @return \code{Dayofweek} The day of that week
+#' @return \code{Weekday_or_weekend}  The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 #' @return \code{hours_worn_total} Total worn hours
 #' @return \code{sed_hour}  Total sedantary hours
 #' @return \code{stand_hour} Total stand hours
@@ -154,7 +154,9 @@ final_dat_oneday_clean=final_dat_oneday
 #' @return \code{perc_stand} Proportion of standing
 #' @return \code{perc_step} Proportion of stepping
 #' @details All numbers are calculated in the given time period (day, hour, etc.). Total sedentary/standing/stepping hours are obtained from the summation of the duration times for sedentary/standing/stepping activities in the given time period.
-#' @examples r1=Standard(sample_event,sample_takeon_log,sample_bed_time); summary(r1)
+#' @examples
+#' \donttest{r1=Standard(sample_event,sample_bed_time,sample_takeon_log)}
+#' \donttest{summary(r1)}
 #' @export
 #'
 Standard=function(final_dat,bed_time,takeoff_time) UseMethod("Standard")
@@ -180,7 +182,7 @@ summary.Standard=function(object,...)
 {
   TAB=cbind(object$year,object$month,object$day,object$dayofweek,object$weekday_or_weekend,object$hours_worn_total,object$sed_hour,object$stand_hour,object$step_hour,object$step_count_total,object$num_hour_over_3_METs,object$MET_hours,object$perc_sedentary,object$perc_stand,object$perc_step)
 
-  colnames(TAB)=c("year","month","day","dayofweek","weekday_or_weekend","hours_worn_total","sed_hour","stand_hour","step_hour","step_count_total","num_hour_over_3_METs","MET_hours","perc_sedentary","perc_stand","perc_step")
+  colnames(TAB)=c("Year","Month","Day","Dayofweek","Weekday_or_weekend","hours_worn_total","sed_hour","stand_hour","step_hour","step_count_total","num_hour_over_3_METs","MET_hours","perc_sedentary","perc_stand","perc_step")
   res <- list(call=object$call,
               Table=TAB)
   class(res) <- "summary.Standard"

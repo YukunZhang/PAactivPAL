@@ -1,13 +1,13 @@
-#' Simulated sample take on and off log
+#' Simulated Sample Take on and off Log
 #'
-#' The variables are as follows:
+#' This log matches event data with the same 7 consecutive days.The variables are as follows:
 #' \itemize{
-#'   \item id The id of participant
-#'   \item Visit The visit number
-#'   \item date.on Take on date
-#'   \item time.on Take on time
-#'   \item date.off Take off date
-#'   \item time.off Take off time
+#'   \item \code{id} The id of participant
+#'   \item \code{Visit} The visit number
+#'   \item \code{date.on} Take on date
+#'   \item \code{time.on} Take on time
+#'   \item \code{date.off} Take off date
+#'   \item \code{time.off} Take off time
 #' }
 #'
 #' @docType data

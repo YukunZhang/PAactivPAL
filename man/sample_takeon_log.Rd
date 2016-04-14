@@ -3,20 +3,20 @@
 \docType{data}
 \name{sample_takeon_log}
 \alias{sample_takeon_log}
-\title{Simulated sample take on and off log}
+\title{Simulated Sample Take on and off Log}
 \format{A data frame with 7 rows and 6 variables}
 \usage{
 data(sample_takeon_log)
 }
 \description{
-The variables are as follows:
+This log matches event data with the same 7 consecutive days.The variables are as follows:
 \itemize{
-  \item id The id of participant
-  \item Visit The visit number
-  \item date.on Take on date
-  \item time.on Take on time
-  \item date.off Take off date
-  \item time.off Take off time
+  \item \code{id} The id of participant
+  \item \code{Visit} The visit number
+  \item \code{date.on} Take on date
+  \item \code{time.on} Take on time
+  \item \code{date.off} Take off date
+  \item \code{time.off} Take off time
 }
 }
 \keyword{datasets}

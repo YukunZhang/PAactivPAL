@@ -3,20 +3,20 @@
 \docType{data}
 \name{sample_bed_time}
 \alias{sample_bed_time}
-\title{Simulated sample Sleep and wake up time log}
+\title{Simulated Sample Sleep and Wake up Time Log}
 \format{A data frame with 7 rows and 6 variables}
 \usage{
 data(sample_bed_time)
 }
 \description{
-The variables are as follows:
+This log matches event data with the same 7 consecutive days. The variables are as follows:
 \itemize{
-  \item id The id of participant
-  \item Visit The visit number
-  \item date.out Wake up date
-  \item time.out Wake up time
-  \item date.in Sleep date
-  \item time.in Sleep time
+  \item \code{id} The id of participant
+  \item \code{Visit} The visit number
+  \item \code{date.out} Wake up date
+  \item \code{time.out} Wake up time
+  \item \code{date.in} Sleep date
+  \item \code{time.in} Sleep time
 }
 }
 \keyword{datasets}

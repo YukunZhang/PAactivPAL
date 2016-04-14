@@ -1,5 +1,7 @@
 
 Sedentary_summary=function (final_dat,bed_time,takeoff_time) {
+  options(digits = 10)
+
   if(missing(takeoff_time)){
     final_dat=clean_time(final_dat)}else{
       final_dat=clean_time(final_dat,takeoff_time)
@@ -18,10 +20,9 @@ Sedentary_summary=function (final_dat,bed_time,takeoff_time) {
 #       record.sleep.time<-c(record.sleep.time,temp.sleep.time)
 #     }
     ###################################################
-    ll=0 #count for getup time
 
     for (i in unique(final_dat$new_date)){
-      ll=ll+1
+
       temp_mat_oneday=final_dat[final_dat$new_date==i,]
       # temp_mat_oneday<-temp_mat_oneday[temp_mat_oneday[,1]>record.getup.time[ll] &temp_mat_oneday[,1]<record.sleep.time[ll], ]
 
@@ -146,7 +147,7 @@ Sedentary_summary=function (final_dat,bed_time,takeoff_time) {
   }
 
   #colnames(table1)<- c("year","month","day","dayofweek","weekday_or_weekend","break_per_day","break_rate","mean_sed_bout_length" ,"prop_of_sed_time_greater_20min","prop_of_sed_time_greater_60min","prop_of_sed_time_greater_120min","total_sed_time_greater_20min","total_sed_time_greater_60min","total_sed_time_greater_120min","percentile_sed_time_5","percentile_sed_time_25","percentile_sed_time_50","percentile_sed_time_75","percentile_sed_time_95","alpha_sed","prop_sed_time_6_12","prop_sed_time_12_18","prop_sed_time_18_22","sed_time_in_30_and_60","sed_num_in_30_and_60")
-  list(year=table1[,1],month=table1[,2], day=table1[,3],dayofweek=table1[,4],weekday_or_weekend=table1[,5], break_per_day=table1[,6],break_rate=table1[,7], mean_sed_bout_length=table1[,8], prop_of_sed_time_greater_20min=table1[,9], prop_of_sed_time_greater_60min=table1[,10],prop_of_sed_time_greater_120min=table1[,11],total_sed_time_greater_20min=table1[,12],total_sed_time_greater_60min=table1[,13],total_sed_time_greater_120min=table1[,14],percentile_sed_time_5=table1[,15],percentile_sed_time_25=table1[,16],percentile_sed_time_50=table[,17],percentile_sed_time_75=table[,18],percentile_sed_time_95=table[,19],alpha_sed=table[,20],prop_sed_time_6_12=table[,21],prop_sed_time_12_18=table[,22],prop_sed_time_18_22=table[,23],sed_time_in_30_and_60=table[,24],sed_num_in_30_and_60=table[,25])
+  list(year=table1[,1],month=table1[,2], day=table1[,3],dayofweek=table1[,4],weekday_or_weekend=table1[,5], break_per_day=table1[,6],break_rate=table1[,7], mean_sed_bout_length=table1[,8], prop_of_sed_time_greater_20min=table1[,9], prop_of_sed_time_greater_60min=table1[,10],prop_of_sed_time_greater_120min=table1[,11],total_sed_time_greater_20min=table1[,12],total_sed_time_greater_60min=table1[,13],total_sed_time_greater_120min=table1[,14],percentile_sed_time_5=table1[,15],percentile_sed_time_25=table1[,16],percentile_sed_time_50=table1[,17],percentile_sed_time_75=table1[,18],percentile_sed_time_95=table1[,19],alpha_sed=table1[,20],prop_sed_time_6_12=table1[,21],prop_sed_time_12_18=table1[,22],prop_sed_time_18_22=table1[,23],sed_time_in_30_and_60=table1[,24],sed_num_in_30_and_60=table1[,25])
 
 #   out=list( total_number_of_activity_bouts=total_number_of_activity_bouts,mean_activity_bout_length=mean_activity_bout_length,prop_of_activity_time_greater_5min=prop_of_activity_time_greater_5min,prop_of_activity_time_greater_10min=prop_of_activity_time_greater_10min,prop_of_activity_time_greater_30min=prop_of_activity_time_greater_30min,total_activity_time_greater_5min=total_activity_time_greater_5min,total_activity_time_greater_10min=total_activity_time_greater_10min,total_activity_time_greater_30min=total_activity_time_greater_30min,percentile_activity_time_5=percentile_activity_time_5,percentile_activity_time_25=percentile_activity_time_25,percentile_activity_time_50=percentile_activity_time_50,percentile_activity_time_75=percentile_activity_time_75,percentile_activity_time_95=percentile_activity_time_95,alpha_activity=alpha_activity,stepping_to_standing_ratio=stepping_to_standing_ratio,table=table)
   #return(table1)
@@ -155,14 +156,14 @@ Sedentary_summary=function (final_dat,bed_time,takeoff_time) {
 #' Sedentary Physical Activity Summary
 #'
 #' Summarize sedentary features using proportions and percentiles
-#' @param final_dat Raw event file, will be cleaned in this function
-#' @param takeoff_time Take on and off time log, reported by participants
-#' @param bed_time Sleep and wake up time log, reported by participants
-#' @return \code{year} The calendar year of recored event
-#' @return \code{month} The calendar month of recorded event
-#' @return \code{day}   The calendar day of recorded event
-#' @return \code{dayofweek} The day of that week
-#' @return \code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+#' @param final_dat Raw event file, will be cleaned in this function. Event file is required for this function.
+#' @param takeoff_time Take on and off time log, reported by participants. Log is not required for this function.
+#' @param bed_time Sleep and wake up time log, reported by participants. Log is not required for this function.
+#' @return \code{Year} The calendar year of recorded event
+#' @return \code{Month} The calendar month of recorded event
+#' @return \code{Day}   The calendar day of recorded event
+#' @return \code{Dayofweek} The day of that week
+#' @return \code{Weekday_or_weekend}  The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 #' @return \code{break_per_day} Number of interrupting sedentary behavior during the given period of time
 #' @return \code{break_rate} Rate of interrupting sedentary behavior
 #' @return \code{mean_sed_bout_length} Mean sedentary bout length. It is the average of the duration time for all sedentary activities
@@ -189,7 +190,9 @@ Sedentary_summary=function (final_dat,bed_time,takeoff_time) {
 #' @details  alpha_sed is defined by \code{1+1/M}, where \code{M} is the average of \code{log(sedentary bout length /minimum sedentary bout length)}.
 #' @details Proportions of sedentary time between 6:00-12:00/12:00-18:00/18:00-22:00 is the ratio of the sedentary durations to the total activity durations between 6:00-12:00/12:00-18:00/18:00-22:00.
 #' @importFrom stats quantile
-#' @examples r2=Sedentary(sample_event,sample_takeon_log,sample_bed_time); summary(r2)
+#' @examples
+#' \donttest{r2=Sedentary(sample_event,sample_bed_time,sample_takeon_log)}
+#' \donttest{summary(r2)}
 #' @export
 #'
 
@@ -216,7 +219,7 @@ summary.Sedentary=function(object,...)
 {
   TAB=cbind(object$year,object$month,object$day,object$dayofweek,object$weekday_or_weekend,object$break_per_day,object$break_rate,object$mean_sed_bout_length,object$prop_of_sed_time_greater_20min,object$prop_of_sed_time_greater_60min,object$prop_of_sed_time_greater_120min,object$total_sed_time_greater_20min,object$total_sed_time_greater_60min,object$total_sed_time_greater_120min,object$percentile_sed_time_5,object$percentile_sed_time_25,object$percentile_sed_time_50,object$percentile_sed_time_75,object$percentile_sed_time_95,object$alpha_sed,object$prop_sed_time_6_12,object$prop_sed_time_12_18,object$prop_sed_time_18_22,object$sed_time_in_30_and_60,object$sed_num_in_30_and_60)
 
-  colnames(TAB)=c("year","month","day","dayofweek","weekday_or_weekend","break_per_day","break_rate","mean_sed_bout_length" ,"prop_of_sed_time_greater_20min","prop_of_sed_time_greater_60min","prop_of_sed_time_greater_120min","total_sed_time_greater_20min","total_sed_time_greater_60min","total_sed_time_greater_120min","percentile_sed_time_5","percentile_sed_time_25","percentile_sed_time_50","percentile_sed_time_75","percentile_sed_time_95","alpha_sed","prop_sed_time_6_12","prop_sed_time_12_18","prop_sed_time_18_22","sed_time_in_30_and_60","sed_num_in_30_and_60")
+  colnames(TAB)=c("Year","Month","Day","Dayofweek","Weekday_or_weekend","break_per_day","break_rate","mean_sed_bout_length" ,"prop_of_sed_time_greater_20min","prop_of_sed_time_greater_60min","prop_of_sed_time_greater_120min","total_sed_time_greater_20min","total_sed_time_greater_60min","total_sed_time_greater_120min","percentile_sed_time_5","percentile_sed_time_25","percentile_sed_time_50","percentile_sed_time_75","percentile_sed_time_95","alpha_sed","prop_sed_time_6_12","prop_sed_time_12_18","prop_sed_time_18_22","sed_time_in_30_and_60","sed_num_in_30_and_60")
   res <- list(call=object$call,
               Table=TAB)
   class(res) <- "summary.Sedentary"

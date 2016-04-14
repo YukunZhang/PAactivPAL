@@ -192,14 +192,14 @@ SLI_summary=function (final_dat,bed_time,takeoff_time) {
 #' Standing/Light Intensity Physical Activity Summary
 #'
 #' Summarize standing and light intensity activity measures
-#' @param final_dat Raw event file, will be cleaned in this function
-#' @param takeoff_time Take on and off time log, reported by participants
-#' @param bed_time Sleep and wake up time log, reported by participants
-#' @return \code{year} The calendar year of recored event
-#' @return \code{month} The calendar month of recorded event
-#' @return \code{day}   The calendar day of recorded event
-#' @return \code{dayofweek} The day of that week
-#' @return \code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+#' @param final_dat Raw event file, will be cleaned in this function. Event file is required for this function.
+#' @param takeoff_time Take on and off time log, reported by participants. Log is not required for this function.
+#' @param bed_time Sleep and wake up time log, reported by participants. Log is not required for this function.
+#' @return \code{Year} The calendar year of recorded event
+#' @return \code{Month} The calendar month of recorded event
+#' @return \code{Day}   The calendar day of recorded event
+#' @return \code{Dayofweek} The day of that week
+#' @return \code{Weekday_or_weekend}  The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 #' @return \code{total_number_of_activity_bouts} Total events that are standing or stepping
 #' @return \code{total_number_of_activity_bouts} Total number of events that are standing or stepping
 #' @return \code{mean_activity_bout_length} Average length of activity bout
@@ -218,7 +218,9 @@ SLI_summary=function (final_dat,bed_time,takeoff_time) {
 #' @return \code{stepping_to_standing_ratio} Ratio of stepping to standing, the ratio of total stepping hours to standing hours
 #' @details  \code{alpha_activity} is defined by \code{1+1/M}, where \code{M} is the average of \code{log(activity bout length /minimum activity bout length)}
 #' @importFrom stats quantile
-#' @examples r4=SLI(sample_event,sample_takeon_log,sample_bed_time); summary(r4)
+#' @examples
+#'  \donttest{r4=SLI(sample_event,sample_bed_time,sample_takeon_log)}
+#'   \donttest{summary(r4)}
 #' @export
 #'
 
@@ -245,7 +247,7 @@ summary.SLI=function(object,...)
 {
   TAB=cbind(object$year,object$month,object$day,object$dayofweek,object$weekday_or_weekend,object$total_number_of_activity_bouts,object$mean_activity_bout_length,object$prop_of_activity_time_greater_5min,object$prop_of_activity_time_greater_10min,object$prop_of_activity_time_greater_30min,object$total_activity_time_greater_5min,object$total_activity_time_greater_10min,object$total_activity_time_greater_30min,object$percentile_activity_time_5,object$percentile_activity_time_25,object$percentile_activity_time_50,object$percentile_activity_time_75,object$percentile_activity_time_95,object$alpha_activity,object$stepping_to_standing_ratio)
 
-  colnames(TAB)=c("year","month","day","dayofweek","weekday_or_weekend","total_number_of_activity_bouts","mean_activity_bout_length","prop_of_activity_time_greater_5min","prop_of_activity_time_greater_10min","prop_of_activity_time_greater_30min","total_activity_time_greater_5min","total_activity_time_greater_10min","total_activity_time_greater_30min","percentile_activity_time_5","percentile_activity_time_25","percentile_activity_time_50","percentile_activity_time_75","percentile_activity_time_95","alpha_activity","stepping_to_standing_ratio")
+  colnames(TAB)=c("Year","Month","Day","Dayofweek","Weekday_or_weekend","total_number_of_activity_bouts","mean_activity_bout_length","prop_of_activity_time_greater_5min","prop_of_activity_time_greater_10min","prop_of_activity_time_greater_30min","total_activity_time_greater_5min","total_activity_time_greater_10min","total_activity_time_greater_30min","percentile_activity_time_5","percentile_activity_time_25","percentile_activity_time_50","percentile_activity_time_75","percentile_activity_time_95","alpha_activity","stepping_to_standing_ratio")
   res <- list(call=object$call,
               Table=TAB)
   class(res) <- "summary.SLI"

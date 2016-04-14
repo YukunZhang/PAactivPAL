@@ -3,20 +3,21 @@
 \docType{data}
 \name{sample_event}
 \alias{sample_event}
-\title{Simulated sample accelerometer data}
-\format{A data frame with 21687 rows and 6 variables}
+\title{Simulated Sample Accelerometer Data}
+\format{A data frame with 21687 rows, and 6 variables}
 \usage{
 data(sample_event)
 }
 \description{
+Seven consecutive days data is provided.
 The variables are as follows:
 \itemize{
-  \item Time Time of the recored physical activity from simmulated ActivPAL data
-  \item Data Count Data Count (samples)
-  \item Time interval (in second)
-  \item Activity Code 0-sedantary, 1-standing, 2-stepping
-  \item Cumulative Step Count
-  \item Activity Score (MET.h)
+  \item \code{Time} Time of the recored physical activity from simmulated ActivPAL data
+  \item \code{Data Count} Data Count (samples)
+  \item \code{Time interval} (in second)
+  \item \code{Activity Code} 0-sedantary, 1-standing, 2-stepping
+  \item \code{Cumulative Step Count}
+  \item \code{Activity Score} (MET.h)
 }
 }
 \keyword{datasets}

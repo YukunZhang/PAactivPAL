@@ -7,64 +7,66 @@
 MVPA(final_dat, bed_time, takeoff_time)
 }
 \arguments{
-\item{final_dat}{Raw event file, will be cleaned in this function}
+\item{final_dat}{Raw event file, will be cleaned in this function. Event file is required for this function.}
 
-\item{bed_time}{Sleep and wake up time log, reported by participants}
+\item{bed_time}{Sleep and wake up time log, reported by participants. Log is not required for this function.}
 
-\item{takeoff_time}{Take on and off time log, reported by participants}
+\item{takeoff_time}{Take on and off time log, reported by participants. Log is not required for this function.}
 }
 \value{
-\code{year} The calendar year of recored event
+\code{Year} The calendar year of recorded event
 
-\code{month} The calendar month of recorded event
+\code{Month} The calendar month of recorded event
 
-\code{day}   The calendar day of recorded event
+\code{Day}   The calendar day of recorded event
 
-\code{dayofweek} The day of that week
+\code{Dayofweek} The day of that week
 
-\code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+\code{Weekday_or_weekend} The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 
-\code{Total_light_time} Total light time: the total activity minutes minus the total MVPA hours
+\code{Total_light_time} Total light time: total activity minutes minus the total MVPA hours
 
-\code{Total_MVPA_time}  Total MVPA hours: the summation of the total Long Bout MVPA and total Sporadic MVPA durations
+\code{Total_MVPA_time}  Total MVPA hours: summation of the total long bouts MVPA and total sporadic MVPA durations
 
-\code{Total_MVPA_Long_Bout_time} Total MVPA long bout time: the summation of the total Long Bout MVPA durations
+\code{Total_MVPA_Long_Bout_time} Total MVPA long bout time: summation of the total long bouts MVPA durations
 
-\code{Total_mvpa_sporadic_time} Total MVPA sporadic time: the summation of the total Sporadic MVPA durations
+\code{Total_mvpa_sporadic_time} Total MVPA sporadic time: summation of the total sporadic MVPA durations
 
-\code{Total_Number_of_MVPA_Long_Bouts_and_Sporadic} Total Number of MVPA (Long Bouts or Sporadic): count the number of MVPA from 15 second data
+\code{Total_Number_of_MVPA_Long_Bouts_and_Sporadic} Total Number of MVPA (long bouts or sporadic): count the number of MVPA from 15 second data
 
-\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_2} Proportion of MVPA (Long Bouts or Sporadic) greater than 2 minutes
+\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_2} Proportion of MVPA (long bouts or sporadic) greater than 2 minutes
 
-\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_5} Proportion of MVPA (Long Bouts or Sporadic) greater than 5 minutes
+\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_5} Proportion of MVPA (long bouts or sporadic) greater than 5 minutes
 
-\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_10} Proportion of MVPA (Long Bouts or Sporadic) greater than 10 minutes
+\code{Proportion_of_MVPA_Long_Bouts_and_Sporadic_greater_10} Proportion of MVPA (long bouts or sporadic) greater than 10 minutes
 
-\code{Total_Number_of_MVPA_Long_Bouts} Total number of long bout MVPA: count the number of Long Bouts MVPA from 10 minute data
+\code{Total_Number_of_MVPA_Long_Bouts} Total number of long bouts MVPA: count the number of long bouts MVPA from 10 minute data
 
 \code{Mean_MVPA_Long_Bout_Length} Mean of long bout MVPA length
 
-\code{Proportion_of_MVPA_Long_Bouts_greater_10} Proportion of Long Bout MVPA greater than 10 minutes
+\code{Proportion_of_MVPA_Long_Bouts_greater_10} Proportion of long bouts MVPA greater than 10 minutes
 
-\code{Proportion_of_MVPA_Long_Bouts_greater_20} Proportion of Long Bout MVPA greater than 20 minutes
+\code{Proportion_of_MVPA_Long_Bouts_greater_20} Proportion of long bouts MVPA greater than 20 minutes
 
 \code{Highest_MET_value_15s} Highest METs values in 15 second
 
 \code{Highest_MET_value_10min} Highest METs values in 10 minutes
 
-\code{Total_MET_hrs_Long_Bouts_and_Sporadic_mvpa} Total METs hours from Long Bout MVPA and sporadic MVPA: the summation of METs hours from all MVPA records
+\code{Total_MET_hrs_Long_Bouts_and_Sporadic_mvpa} Total METs hours from long bouts MVPA and sporadic MVPA: the summation of METs hours from all MVPA records
 
-\code{Total_MET_hrs_Long_Bouts} Total METs hours from Long Bout MVPA: the summation of METs hours from Long Bout MVPA records
+\code{Total_MET_hrs_Long_Bouts} Total METs hours from long bouts MVPA: the summation of METs hours from long bouts MVPA records
 }
 \description{
-Summarize activity measures using MVPA
+Summarize moderate to vigorous activity measures
 }
 \details{
-MVPA is defined into two types: Long Bout MVPA and Sporadic MVPA_ Long Bout MVPA is defined as 10 consecutive minutes with METs>=3 (allowing 2 min below that threshold). Sporadic MVPA is defined as activities at any time with METS>=3 and they are not in Long Bout MVPA.
+MVPA is defined into two types: long bout MVPA and sporadic MVPA. Long bout MVPA is defined as 10 consecutive minutes with METs>=3 (allowing 2 min below that threshold). Sporadic MVPA is defined as activities at any time with METS>=3 and they are not in long bouts MVPA.
 
 Highest METs values in 15 second/10 minutes are calculated by picking up the maximum METs values from the combined data with 15 second intervals and the data with 10 minutes intervals, respectively.
+
+Function \code{MVPA()} takes longer running time than other functions as its nature of more complex calculation.
 }
 \examples{
-r1=MVPA(sample_event,sample_takeon_log,sample_bed_time); summary(r1)
+\donttest{r1=MVPA(sample_event,sample_bed_time,sample_takeon_log)};\donttest{summary(r1)}
 }
 

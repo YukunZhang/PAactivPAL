@@ -12,8 +12,8 @@ clean_time=function(dat,takeoff_time){
     if (start_ee>1)
     {
       ee_new_int_type <-c( ee_new[1:((start_ee)-1)],ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)  )
-    }else
-    {    ee_new_int_type <-ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)
+    }else { start_ee=1
+      ee_new_int_type <-ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)
     } #### if interval type has large difference with character type, use character type
     int_dif_char<-which(abs(ee_new-ee_new_int_type)>0.1 )
     ee_new_int_type[int_dif_char]<-ee_new[int_dif_char]
@@ -79,7 +79,8 @@ if(is.numeric(dat$Time)==F) ####if  is.numeric(dat$Time)==F, we need further mod
   {
     ee_new_int_type <-c( ee_new[1:((start_ee)-1)],ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)  )
   }else
-  {    ee_new_int_type <-ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)
+  {    start_ee=1
+  ee_new_int_type <-ee_new[start_ee]+(dat$DataCount[start_ee:nrow(dat)]/10/24/60/60)
   } #### if interval type has large difference with character type, use character type
   int_dif_char<-which(abs(ee_new-ee_new_int_type)>0.1 )
   ee_new_int_type[int_dif_char]<-ee_new[int_dif_char]

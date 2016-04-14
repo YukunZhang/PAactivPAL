@@ -7,22 +7,22 @@
 Standard(final_dat, bed_time, takeoff_time)
 }
 \arguments{
-\item{final_dat}{Raw event file, will be cleaned in this function}
+\item{final_dat}{Raw event file, will be cleaned in this function. Event file is required for this function.}
 
-\item{bed_time}{Sleep and wake up time log, reported by participants}
+\item{bed_time}{Sleep and wake up time log, reported by participants. Log is not required for this function.}
 
-\item{takeoff_time}{Take on and off time log, reported by participants}
+\item{takeoff_time}{Take on and off time log, reported by participants. Log is not required for this function.}
 }
 \value{
-\code{year} The calendar year of recored event
+\code{Year} The calendar year of recorded event
 
-\code{month} The calendar month of recorded event
+\code{Month} The calendar month of recorded event
 
-\code{day}   The calendar day of recorded event
+\code{Day}   The calendar day of recorded event
 
-\code{dayofweek} The day of that week
+\code{Dayofweek} The day of that week
 
-\code{weekday_or_weekend} It is a weekday or weekend (0 for weekday, 1 for weekend)
+\code{Weekday_or_weekend}  The recored event date is a weekday or weekend (0 for weekday, 1 for weekend)
 
 \code{hours_worn_total} Total worn hours
 
@@ -51,6 +51,7 @@ Summarize standard activity measures
 All numbers are calculated in the given time period (day, hour, etc.). Total sedentary/standing/stepping hours are obtained from the summation of the duration times for sedentary/standing/stepping activities in the given time period.
 }
 \examples{
-r1=Standard(sample_event,sample_takeon_log,sample_bed_time); summary(r1)
+\donttest{r1=Standard(sample_event,sample_bed_time,sample_takeon_log)}
+\donttest{summary(r1)}
 }
 
